@@ -1,4 +1,4 @@
-import Projects from '../models/ProjectModel';
+import Projects from '../models/ProjectModel.js';
 
 export const getProjects = (req, res) => {};
 
