@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 // import db from './config/Database.js';
 import UserRoute from './routes/UserRoute.js';
 import ProjectRoute from './routes/ProjectRoute.js';
+import AuthRoute from './routes/AuthRoute.js';
 
 dotenv.config();
 
@@ -37,6 +38,8 @@ app.use(express.json());
 app.use(UserRoute);
 
 app.use(ProjectRoute);
+
+app.use(AuthRoute);
 
 app.listen(process.env.APP_PORT, () => {
     console.log(
