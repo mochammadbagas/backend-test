@@ -14,7 +14,7 @@ export const Login = async (req, res) => {
     const uuid = user.uuid;
     const name = user.name;
     const email = user.email;
-    const role = user.email;
+    const role = user.role;
     res.status(200).json({ uuid, name, email, role });
 };
 
@@ -25,7 +25,7 @@ export const Me = async (req, res) => {
     const user = await Users.findOne({
         attributes: ['uuid', 'name', 'email', 'role'],
         where: {
-            uuid: res.session.userId,
+            uuid: req.session.userId,
         },
     });
     if (!user) return res.status(404).json({ msg: 'User tidak ditemukan' });
