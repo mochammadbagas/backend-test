@@ -7,6 +7,7 @@ import SequelizeStore from 'connect-session-sequelize';
 import UserRoute from './routes/UserRoute.js';
 import ProjectRoute from './routes/ProjectRoute.js';
 import AuthRoute from './routes/AuthRoute.js';
+import fileUpload from 'express-fileupload';
 
 dotenv.config();
 
@@ -42,6 +43,10 @@ app.use(
 );
 
 app.use(express.json());
+
+app.use(fileUpload());
+
+app.use(express.static('public'));
 
 app.use(UserRoute);
 
